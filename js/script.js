@@ -10,7 +10,11 @@ window.onload = function () {
     var special = document.getElementById("special");
     var length = 16;
     var btn = document.getElementById("confirm"); //获取 按钮
-    var txt_opt = document.getElementById("txt_opt"); //获取文本输出框
+	var btn_copy = document.getElementById("copy_psw"); //获取 按钮2
+    var txt_opt1 = document.getElementById("txt_opt1"); //获取文本输出框1
+	var txt_opt2 = document.getElementById("txt_opt2"); //获取文本输出框2
+	txt_opt1.innerHTML = "结果为：";
+
 
     btn.onclick = function make() {
         length = document.getElementById("ipt_len").value-1; //密码长度
@@ -70,13 +74,16 @@ window.onload = function () {
                 break;
         }
     }
+	
+
     //对于普通情况的函数
     function makePW (len,startnum,endnum) {
         for(var i=0; i<=len; i++) {
             var ram = Math.floor(Math.random()*(endnum-startnum+1)+startnum);
             str += data[ram];
         }
-        txt_opt.innerHTML = "结果为：" +  str;
+        txt_opt1.innerHTML = "结果为：";
+		txt_opt2.innerHTML =   str;
         str = "";
     }
     //特殊情况
@@ -90,7 +97,8 @@ window.onload = function () {
             }
             str += data[ram];
         }
-        txt_opt.innerHTML = "结果为：" + str;
+        txt_opt1.innerHTML = "结果为：";
+		txt_opt2.innerHTML =   str;
         str = "";
     }
 
