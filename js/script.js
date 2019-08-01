@@ -13,7 +13,7 @@ window.onload = function () {
 	var btn_copy = document.getElementById("copy_psw"); //获取 按钮2
     var txt_opt1 = document.getElementById("txt_opt1"); //获取文本输出框1
 	var txt_opt2 = document.getElementById("txt_opt2"); //获取文本输出框2
-	txt_opt1.innerHTML = "结果为：";
+	txt_opt1.innerHTML = "结果为：   ";
 
 
     btn.onclick = function make() {
@@ -82,7 +82,6 @@ window.onload = function () {
             var ram = Math.floor(Math.random()*(endnum-startnum+1)+startnum);
             str += data[ram];
         }
-        txt_opt1.innerHTML = "结果为：";
 		txt_opt2.innerHTML =   str;
         str = "";
     }
@@ -97,10 +96,21 @@ window.onload = function () {
             }
             str += data[ram];
         }
-        txt_opt1.innerHTML = "结果为：";
 		txt_opt2.innerHTML =   str;
         str = "";
     }
+	
+		btn_copy.onclick = function copypsw(){
+		var e=document.getElementById("txt_opt2");//对象是copy-num1
+         e.select(); //选择对象
+         tag=document.execCommand("Copy"); //执行浏览器复制命令
+        /*
+		if(tag){
+      	  alert('复制内容成功');
+        }
+		*/
+
+	}
 
 
 }
